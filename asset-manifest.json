@@ -1,23 +1,20 @@
 {
   "files": {
-    "main.css": "/bart.sk-gallery-level_2/static/css/main.a617e044.chunk.css",
-    "main.js": "/bart.sk-gallery-level_2/static/js/main.a2d6ac27.chunk.js",
-    "main.js.map": "/bart.sk-gallery-level_2/static/js/main.a2d6ac27.chunk.js.map",
-    "runtime-main.js": "/bart.sk-gallery-level_2/static/js/runtime-main.13c4b09e.js",
-    "runtime-main.js.map": "/bart.sk-gallery-level_2/static/js/runtime-main.13c4b09e.js.map",
-    "static/js/2.b86bc4ee.chunk.js": "/bart.sk-gallery-level_2/static/js/2.b86bc4ee.chunk.js",
-    "static/js/2.b86bc4ee.chunk.js.map": "/bart.sk-gallery-level_2/static/js/2.b86bc4ee.chunk.js.map",
-    "static/js/3.2b149cc1.chunk.js": "/bart.sk-gallery-level_2/static/js/3.2b149cc1.chunk.js",
-    "static/js/3.2b149cc1.chunk.js.map": "/bart.sk-gallery-level_2/static/js/3.2b149cc1.chunk.js.map",
+    "main.css": "/bart.sk-gallery-level_2/static/css/main.9311cd49.chunk.css",
+    "main.js": "/bart.sk-gallery-level_2/static/js/main.a2d824e9.chunk.js",
+    "main.js.map": "/bart.sk-gallery-level_2/static/js/main.a2d824e9.chunk.js.map",
+    "runtime-main.js": "/bart.sk-gallery-level_2/static/js/runtime-main.2e957f74.js",
+    "runtime-main.js.map": "/bart.sk-gallery-level_2/static/js/runtime-main.2e957f74.js.map",
+    "static/js/2.695654a7.chunk.js": "/bart.sk-gallery-level_2/static/js/2.695654a7.chunk.js",
+    "static/js/2.695654a7.chunk.js.map": "/bart.sk-gallery-level_2/static/js/2.695654a7.chunk.js.map",
     "index.html": "/bart.sk-gallery-level_2/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/bart.sk-gallery-level_2/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.b86bc4ee.chunk.js.LICENSE.txt": "/bart.sk-gallery-level_2/static/js/2.b86bc4ee.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/bart.sk-gallery-level_2/static/media/logo.6ce24c58.svg"
+    "static/css/main.9311cd49.chunk.css.map": "/bart.sk-gallery-level_2/static/css/main.9311cd49.chunk.css.map",
+    "static/js/2.695654a7.chunk.js.LICENSE.txt": "/bart.sk-gallery-level_2/static/js/2.695654a7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.13c4b09e.js",
-    "static/js/2.b86bc4ee.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.a2d6ac27.chunk.js"
+    "static/js/runtime-main.2e957f74.js",
+    "static/js/2.695654a7.chunk.js",
+    "static/css/main.9311cd49.chunk.css",
+    "static/js/main.a2d824e9.chunk.js"
   ]
 }
