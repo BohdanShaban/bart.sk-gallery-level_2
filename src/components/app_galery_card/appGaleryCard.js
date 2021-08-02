@@ -11,6 +11,8 @@ export default class AppGaleryCard extends Component {
 
     render() {
 
+        const {title} = this.props;
+
         return (
 
             <Col lg={3} md={4} sm={6}>
@@ -19,7 +21,7 @@ export default class AppGaleryCard extends Component {
                     <div className="categ_img">
                         <img src={image} alt="img" /> 
                     </div>
-                    <div className="categ_title">priroda</div>
+                    <div className="categ_title"> {title} </div>
                 </div>
             </Col>
         )

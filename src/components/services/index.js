@@ -1,3 +1,3 @@
-import App from './app';
+import GalleryService from './galery_service';
 
-export default App;
+export default GalleryService;
