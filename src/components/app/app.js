@@ -19,45 +19,40 @@ export default class App extends Component {
 
             // <!------------      MAIN SECTION      ------------>
 
-            <div>
-
-                <section className="section" >   {/* style="display: block" */}
+            <section className="section">   {/* style="display: block" */}
+                <Container>
+            
+                    {/* <!--  BLURED TOP BackGround  --> */}
+                    < GalleryBackground />
+                
                     <Container>
-                
-                        < GalleryBackground />
+                        <Row>
+                            
+                            {/* <!--  H1, H2 & Divider  --> */}
+                            < GaleryHeader />
+                            
+                            {/* <!--  CARDS  --> */}
+                            < AppGaleryCard />
+                            < AppGaleryCard />
+                            < AppGaleryCard />
+                            < AppGaleryCard />
+                            
+                            < AppGaleryCard />
+                            < AppGaleryCard />
+                            
+
+        
+                            {/* <!-- ADD NEW CATEGORY  CARD  --> */}
+                            < AppAddGaleryCard />
+
+                            
+            
+                        </Row> {/* <!--  row  --> */}
+                    </Container> {/* <!--  container  --> */}
                     
-                        <div className="galery_wrapper "> 
-                            <Container>
-                                <Row>
-                                    
-                                    < GaleryHeader />
-                                    
-                                    {/* <!--  CARDS  --> */}
-
-                                    < AppGaleryCard />
-                                    < AppGaleryCard />
-                                    < AppGaleryCard />
-                                    < AppGaleryCard />
-                                    
-                                    < AppGaleryCard />
-                                    < AppGaleryCard />
-                                    
-
-                
-                                    {/* <!-- ADD NEW CATEGORY  CARD  --> */}
-                                    
-                                    < AppAddGaleryCard />
-
-                                    
-                    
-                                </Row> {/* <!--  row  --> */}
-                            </Container> {/* <!--  container  --> */}
-                        </div> {/* <!--  galery_wrapper  --> */}
-                
-                    </Container> {/* <!--  .container  --> */}
-                </section>
-
-            </div>
+            
+                </Container> {/* <!--  .container  --> */}
+            </section>
         )
     }
 }

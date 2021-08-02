@@ -10,7 +10,7 @@ const GalleryBackground = () => {
     return (
         <div className="backgr_wrapper">
             {/* <!--  BLURED_TOP_BG  --> */}
-            <div class="background"> </div>
+            <div className="background"> </div>
             {/* <!--  BLURED_TOP_BG  --> */}
         </div>
     )
