@@ -1,0 +1,43 @@
+import React from "react";
+
+
+
+import './app.sass';
+
+const ClassName = () => {
+
+
+    return (
+        <div>
+            
+        </div>
+    )
+}
+
+export default ClassName;
+
+
+
+///////////////////////////////////////////////////////////////////
+
+
+
+import React, {Component} from "react";
+
+
+
+import './app.sass';
+
+
+export default class ClassName extends Component {
+
+
+    render() {
+
+        return (
+            <div>
+                
+            </div>
+        )
+    }
+}
