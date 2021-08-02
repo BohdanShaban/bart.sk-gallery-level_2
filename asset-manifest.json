@@ -1,20 +1,25 @@
 {
   "files": {
-    "main.css": "/bart.sk-gallery-level_2/static/css/main.9311cd49.chunk.css",
-    "main.js": "/bart.sk-gallery-level_2/static/js/main.a2d824e9.chunk.js",
-    "main.js.map": "/bart.sk-gallery-level_2/static/js/main.a2d824e9.chunk.js.map",
+    "main.css": "/bart.sk-gallery-level_2/static/css/main.36b875f5.chunk.css",
+    "main.js": "/bart.sk-gallery-level_2/static/js/main.c79e43c6.chunk.js",
+    "main.js.map": "/bart.sk-gallery-level_2/static/js/main.c79e43c6.chunk.js.map",
     "runtime-main.js": "/bart.sk-gallery-level_2/static/js/runtime-main.2e957f74.js",
     "runtime-main.js.map": "/bart.sk-gallery-level_2/static/js/runtime-main.2e957f74.js.map",
-    "static/js/2.695654a7.chunk.js": "/bart.sk-gallery-level_2/static/js/2.695654a7.chunk.js",
-    "static/js/2.695654a7.chunk.js.map": "/bart.sk-gallery-level_2/static/js/2.695654a7.chunk.js.map",
+    "static/css/2.4be38407.chunk.css": "/bart.sk-gallery-level_2/static/css/2.4be38407.chunk.css",
+    "static/js/2.eb48a010.chunk.js": "/bart.sk-gallery-level_2/static/js/2.eb48a010.chunk.js",
+    "static/js/2.eb48a010.chunk.js.map": "/bart.sk-gallery-level_2/static/js/2.eb48a010.chunk.js.map",
     "index.html": "/bart.sk-gallery-level_2/index.html",
-    "static/css/main.9311cd49.chunk.css.map": "/bart.sk-gallery-level_2/static/css/main.9311cd49.chunk.css.map",
-    "static/js/2.695654a7.chunk.js.LICENSE.txt": "/bart.sk-gallery-level_2/static/js/2.695654a7.chunk.js.LICENSE.txt"
+    "static/css/2.4be38407.chunk.css.map": "/bart.sk-gallery-level_2/static/css/2.4be38407.chunk.css.map",
+    "static/css/main.36b875f5.chunk.css.map": "/bart.sk-gallery-level_2/static/css/main.36b875f5.chunk.css.map",
+    "static/js/2.eb48a010.chunk.js.LICENSE.txt": "/bart.sk-gallery-level_2/static/js/2.eb48a010.chunk.js.LICENSE.txt",
+    "static/media/pexels-photo-186077.587523b0.jpeg": "/bart.sk-gallery-level_2/static/media/pexels-photo-186077.587523b0.jpeg",
+    "static/media/galleryBackground.sass": "/bart.sk-gallery-level_2/static/media/pexels-photo-261187.cdfa6012.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.2e957f74.js",
-    "static/js/2.695654a7.chunk.js",
-    "static/css/main.9311cd49.chunk.css",
-    "static/js/main.a2d824e9.chunk.js"
+    "static/css/2.4be38407.chunk.css",
+    "static/js/2.eb48a010.chunk.js",
+    "static/css/main.36b875f5.chunk.css",
+    "static/js/main.c79e43c6.chunk.js"
   ]
 }
