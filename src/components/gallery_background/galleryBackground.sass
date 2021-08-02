@@ -1,0 +1,26 @@
+.backgr_wrapper
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+    height: 338px
+    width: 100%
+
+.background
+    position: relative
+    height: 338px
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &::before
+        content: ""
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('./pexels-photo-261187.jpeg') (50% / cover) no-repeat
+        position: absolute
+        top: 0px
+        right: 0px
+        bottom: 0px
+        left: 0px
+        filter: blur(10px)
+        -webkit-filter: blur(10px)
