@@ -1,6 +1,8 @@
 import React, {Component} from "react";
+import { Col } from "react-bootstrap";
+// lg={3} md={4} sm={6}
 
-
+import icon from './add_category.png'
 
 import './appAddGaleryCard.sass';
 
@@ -14,16 +16,17 @@ export default class AppAddGaleryCard extends Component {
 
             // <!-- ADD NEW CATEGORY  CARD  -->
 
-            <div className="col-lg-3 col-md-4 col-sm-6">
+            <Col lg={3} md={4} sm={6}>
+                
                 <div className="category_item__add_categ">
 
-                    <a className="categ_img__add_categ" href="#">
-                        <img src="./icons/add_category.png" alt="img" />
+                    <a className="categ_img__add_categ" href="/#">
+                        <img src={icon} alt="img" />
                     </a>
                     <div className="categ_title__add_categ">pridat kategoriu</div>
 
                 </div>
-            </div>
+            </Col>
         )
     }
 }

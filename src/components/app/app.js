@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row } from "react-bootstrap";
 
 import GalleryBackground from "../gallery_background/galleryBackground";
 import GaleryHeader from "../gallery_header/galeryHeader";
@@ -20,32 +22,39 @@ export default class App extends Component {
             <div>
 
                 <section className="section" >   {/* style="display: block" */}
-                    <div className="container">
+                    <Container>
                 
                         < GalleryBackground />
                     
                         <div className="galery_wrapper "> 
-                            <div className="container">
-                                <div className="row">
+                            <Container>
+                                <Row>
                                     
                                     < GaleryHeader />
                                     
                                     {/* <!--  CARDS  --> */}
 
-                                    {/* < AppGaleryCard /> */}
+                                    < AppGaleryCard />
+                                    < AppGaleryCard />
+                                    < AppGaleryCard />
+                                    < AppGaleryCard />
+                                    
+                                    < AppGaleryCard />
+                                    < AppGaleryCard />
+                                    
 
                 
                                     {/* <!-- ADD NEW CATEGORY  CARD  --> */}
                                     
-                                    {/* < AppAddGaleryCard /> */}
+                                    < AppAddGaleryCard />
 
                                     
                     
-                                </div> {/* <!--  row  --> */}
-                            </div> {/* <!--  container  --> */}
+                                </Row> {/* <!--  row  --> */}
+                            </Container> {/* <!--  container  --> */}
                         </div> {/* <!--  galery_wrapper  --> */}
                 
-                    </div> {/* <!--  .container  --> */}
+                    </Container> {/* <!--  .container  --> */}
                 </section>
 
             </div>
