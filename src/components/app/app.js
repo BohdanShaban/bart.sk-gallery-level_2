@@ -11,6 +11,7 @@ import GalleryService from "../services/galery_service";
 
 import './app.sass';
 export default class App extends Component {
+    galleryService = new GalleryService();
 
     state = {
         galleries: null
@@ -19,23 +20,47 @@ export default class App extends Component {
 
     componentDidMount() {
 
-        const galleryService = new GalleryService();
-
-        galleryService.getAllGalleries()
+        this.galleryService.getAllGalleries()
             .then( (allGaleries) => {
                 this.setState({galleries: allGaleries.galleries})
-                console.log(this.state);
+                console.log(this.state.galleries);
             })
+    }
+
+    renderItems = (galeriesArr) => {  // Arr  of  Objcts
+
+        return galeriesArr.map((gallery) => {
+            
+            const {name, path} = gallery;
+
+            // UNDEFINED FULLPATH (fullpath) param Handling
+            const { fullpath } = (typeof gallery.image !== 'undefined' && gallery.image) || {}
+            //console.log(`fullpath: ${fullpath}`);
+            //if (typeof(fullpath) == 'undefined') { console.log('UNDEF !!!!!!!!!!!!');  }
+
+
+            // const label = this.props.renderItem(gallery); // Render f() Pattern
+
+            return (
+                // DYNAMICLY FORM ROUTE !!!
+                < AppGaleryCard name={name} path={path} imgFullPath={fullpath} /> //imgPath={fullpath}
+            )
+        })
     }
 
 
     render() {
 
+        const {galleries} = this.state;
+
+        if (!galleries) {
+            return <span> Loading !!! </span>
+        }
+
+        const galleryCards = this.renderItems(galleries);
+
         return (
-
-            // <!------------      MAIN SECTION      ------------>
-
-            <section className="section">   {/* style="display: block" */}
+            <section className="section">
                 <Container>
             
                     {/* <!--  BLURED TOP BackGround  --> */}
@@ -45,31 +70,19 @@ export default class App extends Component {
                         <Row>
                             
                             {/* <!--  H1, H2 & Divider  --> */}
-                            < GaleryHeader />
+                            < GaleryHeader subHeaderTxt='kategorie' />
                             
                             {/* <!--  CARDS  --> */}
+                            {galleryCards}
                             
-
-                            < AppGaleryCard />
-                            < AppGaleryCard />
-                            < AppGaleryCard />
-                            < AppGaleryCard />
-                            
-                            < AppGaleryCard />
-                            < AppGaleryCard />
-                            
-
-        
                             {/* <!-- ADD NEW CATEGORY  CARD  --> */}
                             < AppAddGaleryCard />
 
-                            
-            
-                        </Row> {/* <!--  row  --> */}
-                    </Container> {/* <!--  container  --> */}
+                        </Row> 
+                    </Container> 
                     
             
-                </Container> {/* <!--  .container  --> */}
+                </Container> 
             </section>
         )
     }

@@ -2,7 +2,7 @@
 export default class GalleryService {  // export default  
 
   constructor() {
-    this._apiUrlBase = 'http://api.programator.sk/'; // !!!  this.  !!!
+    this._apiUrlBase = 'http://api.programator.sk'; // !!!  this.  !!!
   }
 
   // !!!!!  CRUCIAL THING: Where Promice Will Be Returned ? -> Then .then() Should Be Used  !!!!!
@@ -30,6 +30,17 @@ export default class GalleryService {  // export default
       return this._transformGallrey(gallery);
   }
 
+  getImageExample = async (width = 300, height = 200, fullPath = 'DFauta/1.jpg') => {
+    const image = await this.getResource(`/images/${width}x${height}/${fullPath}`);
+    return image;
+
+    //return galleries.map(this._transformGallrey);
+  }
+
+  
+
+
+
   // Utils Functions Below
 
   isSet(data) {
@@ -47,10 +58,6 @@ export default class GalleryService {  // export default
 
   _transformGallrey = (gallery) => {
       return {
-
-
-
-
           //id: this._extractId(char),
           path: this.isSet(gallery.path),
           name: this.isSet(gallery.name)

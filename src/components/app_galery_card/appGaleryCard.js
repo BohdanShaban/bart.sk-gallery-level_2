@@ -1,29 +1,68 @@
 import React, {Component} from "react";
+import { Col } from "react-bootstrap";  // lg={3} md={4} sm={6}
+import {Link} from 'react-router-dom';
 
-import image from './pexels-photo-186077.jpeg'
-import { Col } from "react-bootstrap";
-// lg={3} md={4} sm={6}
+import no_image_yet from './no_photo_yet.jpeg'
+import Spinner from '../spinner/spinner'
+
 
 
 import './appGaleryCard.sass';
 export default class AppGaleryCard extends Component {
 
+    state = {
+        name: '',
+        path: '',
+        imgFullPath: '',
+        srcImg: no_image_yet,
+
+        loading: true
+    }
+
+    componentDidMount() {
+        const {name, path, imgFullPath} = this.props;
+        this.setState({name, path, loading: false});
+        //console.log(`Gallery Name: ${this.state.name},  Gallery Path: ${this.state.path}`);
+
+        if (typeof(imgFullPath) !== 'undefined') { 
+            this.setState({
+                srcImg: `http://api.programator.sk/images/300x200/${imgFullPath}`,
+                loading: false
+            });  
+        }      
+    }
+
 
     render() {
 
-        const {title} = this.props;
+        const {name, path, srcImg, loading} = this.state;
+
+        const spinner = loading ? <Spinner/> : null;
+        const card = !(loading) ? <CardView name={name} srcImg={srcImg} path={path}  /> : null;
 
         return (
 
             <Col lg={3} md={4} sm={6}>
 
-                <div className="category_item">
-                    <div className="categ_img">
-                        <img src={image} alt="img" /> 
-                    </div>
-                    <div className="categ_title"> {title} </div>
-                </div>
+                {spinner}
+                {card}
+
             </Col>
         )
     }
+}
+
+const CardView = ({name, srcImg, path}) => {
+    return (
+        <>
+            <Link to= { `/${path}/` } > 
+                <div className="category_item">
+                    <div className="categ_img">
+                        <img src={srcImg} alt="img" /> 
+                    </div>
+                    <div className="categ_title"> {name} </div>
+                </div>
+            </Link>
+        </>
+    )
 }
