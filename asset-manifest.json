@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/bart.sk-gallery-level_2/static/css/main.6852babd.chunk.css",
-    "main.js": "/bart.sk-gallery-level_2/static/js/main.ff5623b8.chunk.js",
-    "main.js.map": "/bart.sk-gallery-level_2/static/js/main.ff5623b8.chunk.js.map",
+    "main.css": "/bart.sk-gallery-level_2/static/css/main.1cc57c82.chunk.css",
+    "main.js": "/bart.sk-gallery-level_2/static/js/main.57c7ced2.chunk.js",
+    "main.js.map": "/bart.sk-gallery-level_2/static/js/main.57c7ced2.chunk.js.map",
     "runtime-main.js": "/bart.sk-gallery-level_2/static/js/runtime-main.2e957f74.js",
     "runtime-main.js.map": "/bart.sk-gallery-level_2/static/js/runtime-main.2e957f74.js.map",
     "static/css/2.4be38407.chunk.css": "/bart.sk-gallery-level_2/static/css/2.4be38407.chunk.css",
-    "static/js/2.263e274a.chunk.js": "/bart.sk-gallery-level_2/static/js/2.263e274a.chunk.js",
-    "static/js/2.263e274a.chunk.js.map": "/bart.sk-gallery-level_2/static/js/2.263e274a.chunk.js.map",
+    "static/js/2.474f0e94.chunk.js": "/bart.sk-gallery-level_2/static/js/2.474f0e94.chunk.js",
+    "static/js/2.474f0e94.chunk.js.map": "/bart.sk-gallery-level_2/static/js/2.474f0e94.chunk.js.map",
     "index.html": "/bart.sk-gallery-level_2/index.html",
     "static/css/2.4be38407.chunk.css.map": "/bart.sk-gallery-level_2/static/css/2.4be38407.chunk.css.map",
-    "static/css/main.6852babd.chunk.css.map": "/bart.sk-gallery-level_2/static/css/main.6852babd.chunk.css.map",
-    "static/js/2.263e274a.chunk.js.LICENSE.txt": "/bart.sk-gallery-level_2/static/js/2.263e274a.chunk.js.LICENSE.txt",
+    "static/css/main.1cc57c82.chunk.css.map": "/bart.sk-gallery-level_2/static/css/main.1cc57c82.chunk.css.map",
+    "static/js/2.474f0e94.chunk.js.LICENSE.txt": "/bart.sk-gallery-level_2/static/js/2.474f0e94.chunk.js.LICENSE.txt",
     "static/media/no_photo_yet.1ed03f96.jpeg": "/bart.sk-gallery-level_2/static/media/no_photo_yet.1ed03f96.jpeg",
-    "static/media/galleryBackground.sass": "/bart.sk-gallery-level_2/static/media/pexels-photo-261187.cdfa6012.jpeg"
+    "static/media/topBackground.sass": "/bart.sk-gallery-level_2/static/media/pexels-photo-261187.cdfa6012.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.2e957f74.js",
     "static/css/2.4be38407.chunk.css",
-    "static/js/2.263e274a.chunk.js",
-    "static/css/main.6852babd.chunk.css",
-    "static/js/main.ff5623b8.chunk.js"
+    "static/js/2.474f0e94.chunk.js",
+    "static/css/main.1cc57c82.chunk.css",
+    "static/js/main.57c7ced2.chunk.js"
   ]
 }
