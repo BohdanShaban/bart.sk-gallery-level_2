@@ -3,9 +3,9 @@ import { Col } from "react-bootstrap";
 
 
 
-import './galeryHeader.sass';
+import './topHeaders.sass';
 
-const GaleryHeader = ({subHeaderTxt}) => {
+const TopHeaders = ({subHeaderTxt}) => {
 
 
     return (
@@ -20,4 +20,4 @@ const GaleryHeader = ({subHeaderTxt}) => {
     )
 }
 
-export default GaleryHeader;
+export default TopHeaders;

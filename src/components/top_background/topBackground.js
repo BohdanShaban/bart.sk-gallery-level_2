@@ -2,9 +2,9 @@ import React from "react";
 
 
 
-import './galleryBackground.sass';
+import './topBackground.sass';
 
-const GalleryBackground = () => {
+const TopBackground = () => {
 
 
     return (
@@ -16,4 +16,4 @@ const GalleryBackground = () => {
     )
 }
 
-export default GalleryBackground;
+export default TopBackground;

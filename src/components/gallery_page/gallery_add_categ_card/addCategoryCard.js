@@ -4,10 +4,10 @@ import { Col } from "react-bootstrap";
 
 import icon from './add_category.png'
 
-import './appAddGaleryCard.sass';
+import './addCategoryCard.sass';
 
 
-export default class AppAddGaleryCard extends Component {
+export default class AddCategoryCard extends Component {
 
 
     render() {

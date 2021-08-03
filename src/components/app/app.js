@@ -1,12 +1,11 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row } from "react-bootstrap";
+//import { Container, Row } from "react-bootstrap";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import GalleryBackground from "../gallery_background/galleryBackground";
-import GaleryHeader from "../gallery_header/galeryHeader";
-import AppGaleryCard from "../app_galery_card/appGaleryCard";
-import AppAddGaleryCard from "../app_add_galery_card/appAddGaleryCard";
 import GalleryService from "../services/galery_service";
+import GalleryPage from '../gallery_page'
+import CategoryPage from '../category_page'
 
 
 import './app.sass';
@@ -17,7 +16,6 @@ export default class App extends Component {
         galleries: null
     }
 
-
     componentDidMount() {
 
         this.galleryService.getAllGalleries()
@@ -27,23 +25,14 @@ export default class App extends Component {
             })
     }
 
-    renderItems = (galeriesArr) => {  // Arr  of  Objcts
-
+    dynamRoutesRender = (galeriesArr) => {  // Arr  of  Objcts
         return galeriesArr.map((gallery) => {
-            
-            const {name, path} = gallery;
-
-            // UNDEFINED FULLPATH (fullpath) param Handling
-            const { fullpath } = (typeof gallery.image !== 'undefined' && gallery.image) || {}
-            //console.log(`fullpath: ${fullpath}`);
-            //if (typeof(fullpath) == 'undefined') { console.log('UNDEF !!!!!!!!!!!!');  }
-
-
-            // const label = this.props.renderItem(gallery); // Render f() Pattern
+            const {path, name} = gallery; 
 
             return (
-                // DYNAMICLY FORM ROUTE !!!
-                < AppGaleryCard name={name} path={path} imgFullPath={fullpath} /> //imgPath={fullpath}
+                <Route path={`/${path}`} >
+                    <CategoryPage categPath={path} categName={name}/>
+                </Route>
             )
         })
     }
@@ -53,37 +42,19 @@ export default class App extends Component {
 
         const {galleries} = this.state;
 
-        if (!galleries) {
-            return <span> Loading !!! </span>
-        }
+        if (!galleries) {  return <span> Loading !!! </span>  }
 
-        const galleryCards = this.renderItems(galleries);
+        const categoryRoutes = this.dynamRoutesRender(galleries);
 
         return (
-            <section className="section">
-                <Container>
-            
-                    {/* <!--  BLURED TOP BackGround  --> */}
-                    < GalleryBackground />
-                
-                    <Container>
-                        <Row>
-                            
-                            {/* <!--  H1, H2 & Divider  --> */}
-                            < GaleryHeader subHeaderTxt='kategorie' />
-                            
-                            {/* <!--  CARDS  --> */}
-                            {galleryCards}
-                            
-                            {/* <!-- ADD NEW CATEGORY  CARD  --> */}
-                            < AppAddGaleryCard />
+            < Router >
 
-                        </Row> 
-                    </Container> 
-                    
-            
-                </Container> 
-            </section>
+                < Route exact path='/' component={GalleryPage}/>
+
+                { categoryRoutes }
+                {/* < Route path='/cart' component={}/> */}
+                
+            </Router>
         )
     }
 }

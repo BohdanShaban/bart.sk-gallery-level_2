@@ -3,14 +3,16 @@ import { Col } from "react-bootstrap";
 
 import image from './pexels-photo-186077.jpeg'
 
-import './galleryImageCard.sass';
+import './categoryImageCard.sass';
 
 
-export default class GalleryImageCard extends Component {
+export default class CategoryImageCard extends Component {
     
 
 
     render() {
+
+        const {name, imgPath} = this.props;
 
         return (
 
@@ -18,7 +20,7 @@ export default class GalleryImageCard extends Component {
 
                 <div class="photo_item">
                     <div class="photo_img">
-                        <img src={image} alt="img" />
+                        <img src={ `http://api.programator.sk/images/400x300/${imgPath}` } alt={name} />
                     </div>
                 </div>
 

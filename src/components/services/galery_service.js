@@ -25,9 +25,9 @@ export default class GalleryService {  // export default
   }
 
 
-  getCertainGallery = async (path) => {
-      const gallery = await this.getResource(`/gallery/${path}`);
-      return this._transformGallrey(gallery);
+  getCategoryImages = async (path) => {
+      const images = await this.getResource(`/gallery/${path}`);
+      return images;
   }
 
   getImageExample = async (width = 300, height = 200, fullPath = 'DFauta/1.jpg') => {

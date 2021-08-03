@@ -3,12 +3,13 @@ import { Col } from "react-bootstrap";  // lg={3} md={4} sm={6}
 import {Link} from 'react-router-dom';
 
 import no_image_yet from './no_photo_yet.jpeg'
-import Spinner from '../spinner/spinner'
+import Spinner from '../../spinner'
 
 
 
-import './appGaleryCard.sass';
-export default class AppGaleryCard extends Component {
+import './galeryCategoryCard.sass';
+
+export default class GaleryCategoryCard extends Component {
 
     state = {
         name: '',
@@ -20,13 +21,13 @@ export default class AppGaleryCard extends Component {
     }
 
     componentDidMount() {
-        const {name, path, imgFullPath} = this.props;
+        const {name, path, imgPath} = this.props;
         this.setState({name, path, loading: false});
         //console.log(`Gallery Name: ${this.state.name},  Gallery Path: ${this.state.path}`);
 
-        if (typeof(imgFullPath) !== 'undefined') { 
+        if (typeof(imgPath) !== 'undefined') { 
             this.setState({
-                srcImg: `http://api.programator.sk/images/300x200/${imgFullPath}`,
+                srcImg: `http://api.programator.sk/images/300x200/${imgPath}`,
                 loading: false
             });  
         }      
