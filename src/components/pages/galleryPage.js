@@ -4,9 +4,7 @@ import { Container, Row } from "react-bootstrap";
 import TopBackground from "../top_background/topBackground";
 import TopHeaders from "../top_headers/topHeaders";
 import GalleryService from "../services/galery_service";
-import GaleryCategoryCard from './gallery_categ_card'
-
-import './galleryPage.sass';
+import {AddCard, GaleryCategoryCard} from '../cards'
 
 
 export default class GalleryPage extends Component {
@@ -27,7 +25,7 @@ export default class GalleryPage extends Component {
     }
 
     dynamGaleriesRender = (galeriesArr) => {  // Arr  of  Objcts
-        return galeriesArr.map((gallery) => {
+        return galeriesArr.map((gallery, idx) => {
             const {name, path} = gallery;
 
             // UNDEFINED FULLPATH (fullpath) param Handling
@@ -37,7 +35,7 @@ export default class GalleryPage extends Component {
 
             // const label = this.props.renderItem(gallery); // Render f() Pattern
 
-            return < GaleryCategoryCard name={name} path={path} imgPath={fullpath} />
+            return < GaleryCategoryCard name={name} path={path} imgPath={fullpath} key={idx} />
         })
     }
 
@@ -66,7 +64,7 @@ export default class GalleryPage extends Component {
                                 {galleryCards}
                                 
                                 {/* <!-- ADD NEW CATEGORY  CARD  --> */}
-
+                                < AddCard addCategory={true}/>
 
                             </Row> 
                         </Container> 

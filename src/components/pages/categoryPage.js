@@ -1,12 +1,10 @@
 import React, {Component} from "react";
 import { Container, Row } from "react-bootstrap";
 
-import GalleryBackground from "../top_background/topBackground";
-import GaleryHeader from "../top_headers/topHeaders";
-import GalleryService from "../services/galery_service";
-import CategoryImageCard from "./category_image_card"
-
-import './categoryPage.sass';
+import GalleryBackground from "../top_background/topBackground"
+import TopHeaders from "../top_headers/topHeaders"
+import GalleryService from "../services/galery_service"
+import {AddCard, CategoryImageCard} from '../cards'
 
 
 export default class CategoryPage extends Component {
@@ -27,17 +25,10 @@ export default class CategoryPage extends Component {
     }
 
     dynamImagesRender = (imagesArr) => {  // Arr  of  Objcts
-        return imagesArr.map((image) => {
+        return imagesArr.map((image, idx) => {
             const {name, fullpath} = image;
-
-            // UNDEFINED FULLPATH (fullpath) param Handling
-            //const { fullpath } = (typeof image.image !== 'undefined' && image.image) || {}
-            //console.log(`fullpath: ${fullpath}`);
-            //if (typeof(fullpath) == 'undefined') { console.log('UNDEF !!!!!!!!!!!!');  }
-
-            // const label = this.props.renderItem(gallery); // Render f() Pattern
-
-            return < CategoryImageCard name={name}  imgPath={fullpath} />
+            
+            return < CategoryImageCard name={name}  imgPath={fullpath} key={idx}/>
         })
     }
 
@@ -60,22 +51,14 @@ export default class CategoryPage extends Component {
                         <Row>
                             
                             {/* <!--  H1, H2 & Divider  --> */}
-                            < GaleryHeader subHeaderTxt={this.props.categName} />
+                            < TopHeaders subHeaderTxt={this.props.categName} withBackBtn={true} />
                             
                             {/* <!--  IMAGES  --> */}
-                            {/* < CategoryImageCard />
-                            < CategoryImageCard />
-                            < CategoryImageCard />
-                            < CategoryImageCard />
-                            < CategoryImageCard />
-                            < CategoryImageCard />
-                            < CategoryImageCard /> */}
-
                             { categoryImageCards }
                             
                             
                             {/* <!-- ADD NEW IMAGE  CARD  --> */}
-
+                            < AddCard addCategory={false} />
 
                         </Row> 
                     </Container> 

@@ -7,7 +7,7 @@ import Spinner from '../../spinner'
 
 
 
-import './galeryCategoryCard.sass';
+import '../cards.sass';
 
 export default class GaleryCategoryCard extends Component {
 
@@ -56,12 +56,12 @@ export default class GaleryCategoryCard extends Component {
 const CardView = ({name, srcImg, path}) => {
     return (
         <>
-            <Link to= { `/${path}/` } > 
-                <div className="category_item">
-                    <div className="categ_img">
+            <Link to= { `/${path}/` } style={{ textDecoration: 'none' }} > 
+                <div className="card_item">
+                    <div className="card_img" style={{height: '157px'}} >
                         <img src={srcImg} alt="img" /> 
                     </div>
-                    <div className="categ_title"> {name} </div>
+                    <div className="card_title"> {name} </div>
                 </div>
             </Link>
         </>

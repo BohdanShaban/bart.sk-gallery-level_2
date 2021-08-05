@@ -11,6 +11,11 @@ h1
     color: #ffffff
     text-transform: uppercase
 
+.sub_header_wrapper
+    display: flex
+    align-items: center
+    
+
 h2.sub_header
     font-size: 16px
     font-weight: 500
@@ -29,3 +34,19 @@ h2.sub_header
     margin-top: 14px
     margin-bottom: 33px
     opacity: 0.2
+
+// Back Button (Left Arrow Btn)
+.back_btn__link 
+    text-decoration: none
+    margin-right: 20px
+
+    transition: transform .2s linear
+
+    &:hover 
+        transform: translateX(-7px)
+    
+
+    & img
+        display: block
+        width: 20px
+        height: 20px

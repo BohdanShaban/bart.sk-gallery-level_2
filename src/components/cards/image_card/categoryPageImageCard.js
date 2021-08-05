@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import { Col } from "react-bootstrap"; 
 
-import image from './pexels-photo-186077.jpeg'
 
-import './categoryImageCard.sass';
+
+import '../cards.sass';
 
 
 export default class CategoryImageCard extends Component {
@@ -18,8 +18,8 @@ export default class CategoryImageCard extends Component {
 
             <Col lg={3} md={4} sm={6} >
 
-                <div class="photo_item">
-                    <div class="photo_img">
+                <div className="card_item"   >  {/* style={{borderBottomLeftRadius: '2%'}} */}
+                    <div className="card_img">
                         <img src={ `http://api.programator.sk/images/400x300/${imgPath}` } alt={name} />
                     </div>
                 </div>

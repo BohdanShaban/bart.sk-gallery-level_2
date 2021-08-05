@@ -1,0 +1,149 @@
+// COMMON ELMS FOR MODALS —> ( MASK, TOP-CLOSE-BTN, HEADER, BOTTOM-ADD-BTN  )
+
+
+//////  MASK , Dialog & Content
+.modal__mask
+    display: flex // NOT Block !!!
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.75)
+
+    overflow: auto // !!! scroll
+    padding: 1rem // !!! for sticking prevent
+
+    position: fixed
+    top: 0
+    bottom: 0
+    z-index: 1000
+
+.modal__dialog
+    width: 100%
+    max-width: 710px
+    margin: auto 
+
+    & .modal_content
+        padding: 35px 25px
+        border-radius: 5px
+        background-color: white
+
+    
+
+//////  TOP-CLOSE-BTN
+.close_btn_wrapper
+    background-color: transparent
+    //background-repeat: no-repeat
+    margin-bottom: 10px
+    display: flex
+
+    & .close_btn
+        display: flex
+        margin-left: auto
+
+        background-color: transparent
+        background-repeat: no-repeat
+        border: none
+        cursor: pointer
+        overflow: hidden
+
+        & img
+            display: block
+            width: 23px
+            height: 23px
+            margin-right: 7px
+
+        & .btn_text
+            font-size: 14px
+            font-weight: 500
+            line-height: 1.94
+            letter-spacing: 0.8px
+            //text-align: left
+            color: #ffffff
+            text-transform: uppercase
+
+
+//////  HEADER
+.modal_content__header
+    font-size: 22px
+    font-weight: 500
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: 1.2px
+    text-align: left
+    color: black
+    text-transform: uppercase
+
+
+//////  BOTTOM-ADD-BTN
+.modal_add_btn
+    display: flex
+    padding: 10px 25px
+    position: relative
+
+    background-color: #36ba36
+    background-repeat: no-repeat
+    border: none
+    cursor: pointer
+    overflow: hidden
+    border-radius: 4px
+
+    & img
+        display: block
+        margin-top: 6px
+        margin-right: 9px
+        width: 14px
+        height: 14px
+
+    & .btn_text
+        font-size: 14px
+        font-weight: 500
+        line-height: 1.94
+        letter-spacing: 0.8px
+        //text-align: left
+        color: #ffffff
+        text-transform: uppercase
+
+
+///// FROM CARDS COMMON CLASSES
+// Cards Images
+.card_img
+
+    width: 100%
+    height: 100%
+    //height: 157px  // Only For Categs -> I Used Inline Style in HTML
+
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        border-top-left-radius: 2%
+        border-top-right-radius: 2%
+
+    &__add_card
+        display: block
+        width: 40px
+        height: 40px
+        margin: 0 auto
+
+
+// Card Bottom Title ( For Category Card Only )
+.card_title
+
+    font-size: 16px
+    font-weight: 500
+    font-stretch: normal
+    font-style: normal
+    letter-spacing: 0.8px
+    color: #555555
+    text-transform: uppercase
+    padding: 21px 0
+
+    &__add_card
+        margin: 16px 0 0
+        font-size: 16px
+        font-weight: bold
+        font-stretch: normal
+        font-style: normal
+        letter-spacing: 0.8px
+        text-transform: uppercase
+        color: #aaaaaa
+        text-align: center

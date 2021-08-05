@@ -1,32 +1,32 @@
-//////  MAIN SECTION
+// CARDS ( Categories or Images )
 
-.category_item
+// Cards 'Wrapper'
+.card_item
     margin-bottom: 30px
-    height: 215px
+    height: 220px
     text-align: center
 
     transition: transform .2s linear
 
-    // box-shadow: 0 0 4px fade(#000, 25%)
-    // transition: box-shadow .2s linear
-
     &:hover
         transform: translateY(-10px)
-        //box-shadow: 0 0 25px fade(#000, 25%)
 
 
-    &__add_categ
+    &__add_card
         padding-top: 71px
         padding-bottom: 71px
 
         transition: transform .2s linear
         &:hover
             transform: translateY(-10px)
-        
 
 
-.categ_img
-    height: 157px
+// Cards Images
+.card_img
+
+    width: 100%
+    height: 100%
+    //height: 157px  // Only For Categs -> I Used Inline Style in HTML
 
     img
         width: 100%
@@ -35,14 +35,15 @@
         border-top-left-radius: 2%
         border-top-right-radius: 2%
 
-    &__add_categ
+    &__add_card
         display: block
         width: 40px
         height: 40px
         margin: 0 auto
 
 
-.categ_title
+// Card Bottom Title ( For Category Card Only )
+.card_title
 
     font-size: 16px
     font-weight: 500
@@ -53,7 +54,7 @@
     text-transform: uppercase
     padding: 21px 0
 
-    &__add_categ
+    &__add_card
         margin: 16px 0 0
         font-size: 16px
         font-weight: bold

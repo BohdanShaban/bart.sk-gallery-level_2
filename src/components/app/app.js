@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import GalleryService from "../services/galery_service";
-import GalleryPage from '../gallery_page'
-import CategoryPage from '../category_page'
+import {GalleryPage, CategoryPage} from '../pages'
+import {AddCategModal, AddPhotoModal} from '../modal_pages'
+
 
 
 import './app.sass';
@@ -26,11 +27,12 @@ export default class App extends Component {
     }
 
     dynamRoutesRender = (galeriesArr) => {  // Arr  of  Objcts
-        return galeriesArr.map((gallery) => {
+        return galeriesArr.map((gallery, idx) => {
             const {path, name} = gallery; 
-
+             
             return (
-                <Route path={`/${path}`} >
+                <Route path={`/${path}`} key={idx}>
+                    
                     <CategoryPage categPath={path} categName={name}/>
                 </Route>
             )
@@ -42,7 +44,7 @@ export default class App extends Component {
 
         const {galleries} = this.state;
 
-        if (!galleries) {  return <span> Loading !!! </span>  }
+        if (!galleries) { return <span> Loading !!! </span>  }
 
         const categoryRoutes = this.dynamRoutesRender(galleries);
 
@@ -51,8 +53,13 @@ export default class App extends Component {
 
                 < Route exact path='/' component={GalleryPage}/>
 
+                {/* ALL CATEGORY PAGES HERE... */}
                 { categoryRoutes }
-                {/* < Route path='/cart' component={}/> */}
+                
+                {/* MODALS ROUTES */}
+                < Route path='/add_categ' component={AddCategModal}/>
+                < Route path='/add_photo' component={AddPhotoModal}/>
+
                 
             </Router>
         )
