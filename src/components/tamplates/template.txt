@@ -70,4 +70,21 @@ CONSOL LOG UTILS:
 // undefined
 if(typeof(path) == 'undefined') { console.log(`UNDEFINED !!!!!  Path:${path}, Name:${name}`) }
 
-// 
+//
+let { path, url, id } = this.props.match;
+console.log(`Path: ${path}, Url: ${url}, ID:${id}`);
+
+// CategoryPageImageCard  as  class Comp:
+// imageClicked = ( imgPath) => {
+    //     // event.stopPropagation();
+    //     // this.props.history.goBack();
+    //     this.props.history.push(imgPath);
+    //     //this.props.location.state = { background: true }; 
+    // }
+
+    //const {imgPath, fullImgPath} = this.props;
+    //const {url} = this.props.match;
+
+// FOR BACKGROUND & MODAL ON TOP
+console.log(`Location: ${location}, BG: ${background} `);
+console.dir(location);   console.dir(background);

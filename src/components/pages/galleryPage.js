@@ -30,10 +30,6 @@ export default class GalleryPage extends Component {
 
             // UNDEFINED FULLPATH (fullpath) param Handling
             const { fullpath } = (typeof gallery.image !== 'undefined' && gallery.image) || {}
-            //console.log(`fullpath: ${fullpath}`);
-            //if (typeof(fullpath) == 'undefined') { console.log('UNDEF !!!!!!!!!!!!');  }
-
-            // const label = this.props.renderItem(gallery); // Render f() Pattern
 
             return < GaleryCategoryCard name={name} path={path} imgPath={fullpath} key={idx} />
         })

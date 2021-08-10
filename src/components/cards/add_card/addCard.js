@@ -1,6 +1,6 @@
-import React from "react";
+import React, {Component} from "react";
 import { Col } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import addCategImg from './add_category.png'
 import addPhotoImg from './add_photo.png'
@@ -10,17 +10,21 @@ import '../cards.sass';
 
 // <!-- ADD NEW CATEGORY/PHOTO  CARD  -->
 
-const AddCard = ({addCategory}) => {
+export class AddCard extends Component {
 
-    const imgSrc = addCategory ? addCategImg : addPhotoImg;
-    const titleText = addCategory ? 'kategoriu' : 'fotky';
-    const linkTo = addCategory ? '/add_categ' : '/add_photo';
+    render() {
+        const {addCategory} = this.props;
 
-    return (
+        const imgSrc = addCategory ? addCategImg : addPhotoImg;
+        const titleText = addCategory ? 'kategoriu' : 'fotky';
+        const linkTo = addCategory ? 'categoryAddModal' : 'photoAddModal'; 
 
-        <Col lg={3} md={4} sm={6}>
-            <Link to={linkTo}  style={{ textDecoration: 'none' }}> 
-                <div className="card_item__add_card">
+        return (
+
+            <Col lg={3} md={4} sm={6}>
+                {/* <Link to={linkTo}  style={{ textDecoration: 'none' }}>  */}
+                <div    className="card_item__add_card"
+                        onClick={ () => this.props.history.push(linkTo) } >  {/* CHANGE THE URL */}
 
                     <div className="card_img__add_card" >
                         <img src={imgSrc} alt="img" />
@@ -28,9 +32,10 @@ const AddCard = ({addCategory}) => {
                     <div className="card_title__add_card">pridat {titleText} </div>
 
                 </div>
-            </Link>
-        </Col>
-    )
+                {/* </Link> */}
+            </Col>
+        )
+    }
 }
 
-export default AddCard;
+export default withRouter(AddCard);

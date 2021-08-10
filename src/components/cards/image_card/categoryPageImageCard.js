@@ -1,30 +1,35 @@
 import React, {Component} from "react";
 import { Col } from "react-bootstrap"; 
-
+import {withRouter, Link, useLocation, useRouteMatch} from 'react-router-dom';
 
 
 import '../cards.sass';
 
 
-export default class CategoryImageCard extends Component {
-    
+const CategoryImageCard = ({imgPath, fullImgPath}) => {
 
+    let location = useLocation();
+    let {url} = useRouteMatch();
 
-    render() {
+    return (
 
-        const {name, imgPath} = this.props;
+        <Col lg={3} md={4} sm={6} > 
 
-        return (
+            <Link to={{ 
+                pathname:`${url}${imgPath}`,
+                state: { background: location }  // !!!!! BY CLICKING WE ARE SETTING  background  Param Here
+                }}  style={{ textDecoration: 'none' }}
+            > 
+                <div className="card_item" > {/* Border Radius !!! */}
 
-            <Col lg={3} md={4} sm={6} >
-
-                <div className="card_item"   >  {/* style={{borderBottomLeftRadius: '2%'}} */}
                     <div className="card_img">
-                        <img src={ `http://api.programator.sk/images/400x300/${imgPath}` } alt={name} />
+                        <img src={ `http://api.programator.sk/images/400x300/${fullImgPath}` } alt={imgPath} />
                     </div>
                 </div>
+            </Link> 
 
-            </Col>
-        )
-    }
+        </Col>
+    )
 }
+
+export default CategoryImageCard; //withRouter(CategoryImageCard);

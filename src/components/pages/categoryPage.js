@@ -26,9 +26,9 @@ export default class CategoryPage extends Component {
 
     dynamImagesRender = (imagesArr) => {  // Arr  of  Objcts
         return imagesArr.map((image, idx) => {
-            const {name, fullpath} = image;
+            const {path, fullpath} = image;
             
-            return < CategoryImageCard name={name}  imgPath={fullpath} key={idx}/>
+            return < CategoryImageCard imgPath={path}  fullImgPath={fullpath} key={idx}/>
         })
     }
 

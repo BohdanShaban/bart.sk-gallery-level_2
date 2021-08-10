@@ -7,7 +7,7 @@ import './modals_common_elms.sass'
 const ModalBottomAddBtn = () => {
 
     return (
-        <button className="modal_add_btn" type="button" data-add>
+        <button className="modal_add_btn" type="submit" data-add>
             <img src={addImg} alt="Add" />
             <div className="btn_text">PRIDAT</div>
         </button>

@@ -1,16 +1,17 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Container, Row } from "react-bootstrap";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-import GalleryService from "../services/galery_service";
+import GalleryService from "../services/galery_service"; 
 import {GalleryPage, CategoryPage} from '../pages'
-import {AddCategModal, AddPhotoModal} from '../modal_pages'
+import {AddCategModal, AddPhotoModal, ShowImageModal} from '../modal_pages'
 
 
 
 import './app.sass';
-export default class App extends Component {
+export class App extends Component {
     galleryService = new GalleryService();
 
     state = {
@@ -26,42 +27,54 @@ export default class App extends Component {
             })
     }
 
-    dynamRoutesRender = (galeriesArr) => {  // Arr  of  Objcts
+    dynamCategoriesRoutesRender = (galeriesArr) => {  // Arr  of  Objcts
         return galeriesArr.map((gallery, idx) => {
             const {path, name} = gallery; 
              
             return (
-                <Route path={`/${path}`} key={idx}>
-                    
+                <Route exact path={`/${path}`} key={idx}>
                     <CategoryPage categPath={path} categName={name}/>
                 </Route>
             )
         })
     }
 
+    // { background && < Route path={`*/*/:id`} component={ShowImageModal} /> }
+    // < Route path={`*/*/:id`} component={ShowImageModal} />
 
     render() {
 
         const {galleries} = this.state;
 
         if (!galleries) { return <span> Loading !!! </span>  }
+        const categoryRoutes = this.dynamCategoriesRoutesRender(galleries);
 
-        const categoryRoutes = this.dynamRoutesRender(galleries);
+        // FOR BACKGROUND & MODAL ON TOP
+        // let {location} = this.props;
+        // let background = location.state && location.state.background;
+
 
         return (
-            < Router >
+            <div>
+                < Switch >
 
-                < Route exact path='/' component={GalleryPage}/>
+                    < Route exact path='/' component={GalleryPage}/>
 
-                {/* ALL CATEGORY PAGES HERE... */}
-                { categoryRoutes }
-                
-                {/* MODALS ROUTES */}
-                < Route path='/add_categ' component={AddCategModal}/>
-                < Route path='/add_photo' component={AddPhotoModal}/>
+                    {/* ALL CATEGORY PAGES HERE... */}
+                    {categoryRoutes}
 
-                
-            </Router>
+                    {/* MODALS ROUTES */}
+                    < Route path='/categoryAddModal' component={AddCategModal} />
+                    < Route path={`*/photoAddModal`} component={AddPhotoModal} /> 
+                    < Route path={`*/*/:id`} component={ShowImageModal} />
+
+                </Switch>
+
+                {/* Show the modal when a background page is set */}
+
+            </div>   
         )
     }
 }
+
+export default withRouter(App);

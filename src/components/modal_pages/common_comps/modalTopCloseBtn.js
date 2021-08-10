@@ -1,21 +1,29 @@
-import React from "react";
-import {Link} from 'react-router-dom';
+import React, {Component}  from "react";
+import {withRouter} from 'react-router-dom';
 
 import closeImg from './close.png'
 
 import './modals_common_elms.sass'
 
-const ModalTopCloseBtn = () => {
+export class ModalTopCloseBtn extends Component {
+
+    urlBack = e => {
+        e.stopPropagation();
+        this.props.history.goBack();
+    };
 
 
-    return (
-        <div className="close_btn_wrapper">
-            <Link to= '/' className="close_btn" style={{ textDecoration: 'none' }}>
-                <img src={closeImg} alt="Close"/>
-                <div className="btn_text">ZAVRIET</div>
-            </Link>
-        </div>
-    )
+    render() {
+        return (
+            <div className="close_btn_wrapper">
+                <button className="close_btn" onClick={ this.urlBack }>
+
+                    <img src={closeImg} alt="Close"/>
+                    <div className="btn_text">ZAVRIET</div>
+                </button>
+            </div>
+        )
+    }
 }
 
-export default ModalTopCloseBtn;
+export default withRouter(ModalTopCloseBtn);

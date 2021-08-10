@@ -3,7 +3,17 @@
 .photo_drag_and_drop
     margin-top: 70px
 
-    & img
+    & label
+        display: block
+        margin: 0 auto
+        & .label_wrapper
+            max-width: 200px
+            margin: 0 auto
+
+    &  input //optgroup, select, textarea, button
+        display: none
+
+    & .add_photo_img
         display: block
         width: 40px
         height: 40px
@@ -16,6 +26,13 @@
         letter-spacing: 0.8px
         text-align: center
         color: #aaaaaa
+
+    & .files_choose_text
+        margin: 5px 0
+        padding: 8px 0
+        border: 3px solid #b4b2b7
+        border-radius: 5px
+        cursor: pointer
 
     & .btn_choose_files
         padding: 10px 25px
