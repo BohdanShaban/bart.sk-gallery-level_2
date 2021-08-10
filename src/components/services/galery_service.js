@@ -17,12 +17,8 @@ export default class GalleryService {  // export default
   }
 
   postResource = async (url, contentTypeStr, dataObj) => { // BASE f() FOR ALL NEXT f()s
-    let infoStr = '___IMAGE___';
-    if(contentTypeStr === 'application/json') { 
-      dataObj =  JSON.stringify(dataObj);
-      console.log('application/json !!!!!!!');
-      infoStr = '___CATEGORY___';
-    }
+    let infoStr = '___CATEGORY___';
+    if(contentTypeStr === 'application/json') { dataObj =  JSON.stringify(dataObj); }
 
     const res = await fetch(`${this._apiUrlBase}${url}`, {
                                                             method: 'POST',
@@ -34,6 +30,7 @@ export default class GalleryService {  // export default
 
     return await res.json(); //  !!!  await -> .json()  !!! 
   }
+
   postNewImgToCategory = async ( categUrlStr, dataObj ) => {
     let infoStr = '___IMAGE___';
 
@@ -45,10 +42,6 @@ export default class GalleryService {  // export default
     if (! res.ok) { throw new Error(`!!!!!! COULD NOT POST ${infoStr} ${this._apiUrlBase}. Error status: ${res.status} !!!!!!`) };
 
     return await res.json();
-
-
-    // const image = await this.postResource(`/gallery${categUrlStr}`, 'multipart/form-data; boundary=--boundary', dataObj);
-    // return image;
   }
 
   postNewGallery = async ( dataObj ) => {
@@ -60,47 +53,16 @@ export default class GalleryService {  // export default
   getAllGalleries = async () => {
     const galleries = await this.getResource(`/gallery`);
     return galleries;
-
-    //return galleries.map(this._transformGallrey);
   }
 
   getCategoryImages = async (path) => {
-      const images = await this.getResource(`/gallery/${path}`);
-      return images;
+    const images = await this.getResource(`/gallery/${path}`);
+    return images;
   }
 
   getImageExample = async (width = 300, height = 200, fullPath = 'DFauta/1.jpg') => {
     const image = await this.getResource(`/images/${width}x${height}/${fullPath}`);
     return image;
-
-    //return galleries.map(this._transformGallrey);
-  }
-
-  
-
-
-
-  // Utils Functions Below
-
-  isSet(data) {
-      if (data) {
-          return data
-      } else {
-          return 'no data :('
-      }
-  }
-
-  _extractId = (item) => {
-      const idRegExp = /\/([0-9]*)$/;
-      return item.url.match(idRegExp)[1];
-  }
-
-  _transformGallrey = (gallery) => {
-      return {
-          //id: this._extractId(char),
-          path: this.isSet(gallery.path),
-          name: this.isSet(gallery.name)
-      };
   }
 
 }
