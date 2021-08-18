@@ -28,8 +28,10 @@ export class AddCategModal extends Component {
 
         galleryService.postNewGallery(postObj)
             .then ( myJson => console.log('SUCCESS POST RESULT: ', myJson) )
-
+            .catch((err) => console.log(err))
         this.setState({ inputTxt: '' }); // IMMUTABLE !!!
+        // Close Modal 
+        document.getElementById('modal_close').click();
     }
 
     onValueChange = (e) => {

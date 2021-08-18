@@ -20,7 +20,7 @@ export class ModalTopCloseBtn extends Component {
     render() {
         return (
             <div className="close_btn_wrapper">
-                <button className="close_btn" onClick={ this.removeLastUrlPrt }>
+                <button className="close_btn" id='modal_close' onClick={ this.removeLastUrlPrt }>
 
                     <img src={closeImg} alt="Close"/>
                     <div className="btn_text">zavrieť</div>

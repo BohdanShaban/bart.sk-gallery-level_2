@@ -55,6 +55,9 @@ export class AddPhotoModal extends Component {
     onSubmit = (e) => {
         this.preventDefaults(e);
         this.postFiles(this.state.selectedFiles);
+
+        // Close Modal
+        document.getElementById('modal_close').click();
     }
 
     onDragOver = (e) => {
@@ -85,7 +88,7 @@ export class AddPhotoModal extends Component {
     render() {
         return (
             <>
-                <div className="modal__mask"  onClick={ () => this.props.history.goBack() }> 
+                <div className="modal__mask"  >  {/* onClick={ () => this.props.history.goBack() } */}
 
                     <div className="modal__dialog">
 
