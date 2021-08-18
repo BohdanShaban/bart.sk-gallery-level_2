@@ -27,9 +27,11 @@ export default class GaleryCategoryCard extends Component {
 
         if (typeof(imgPath) !== 'undefined') { 
             this.setState({
-                srcImg: `http://api.programator.sk/images/300x200/${imgPath}`,
+                srcImg: `http://api.programator.sk/images/200x250/${imgPath}`,
                 loading: false
             });  
+            //console.log(`GaleryCategoryCard: srcImg:${this.state.srcImg}`)
+
         }      
     }
 
@@ -37,9 +39,10 @@ export default class GaleryCategoryCard extends Component {
     render() {
 
         const {name, path, srcImg, loading} = this.state;
+        const {onCardHover, onCardLeave} = this.props;
 
         const spinner = loading ? <Spinner/> : null;
-        const card = !(loading) ? <CardView name={name} srcImg={srcImg} path={path}  /> : null;
+        const card = !(loading) ? <CardView name={name} srcImg={srcImg} path={path} onCardHover={onCardHover} onCardLeave={onCardLeave} /> : null;
 
         return (
 
@@ -53,13 +56,13 @@ export default class GaleryCategoryCard extends Component {
     }
 }
 
-const CardView = ({name, srcImg, path}) => {
+const CardView = ({name, srcImg, path, onCardHover, onCardLeave}) => {
     return (
         <>
             <Link to= { `/${path}/` } style={{ textDecoration: 'none' }} > 
-                <div className="card_item">
+                <div className="card_item" onMouseEnter={ () => onCardHover(srcImg) } onMouseLeave={ () => onCardLeave() } >
                     <div className="card_img" style={{height: '157px'}} >
-                        <img src={srcImg} alt="img" /> 
+                        <img src={srcImg} alt="IMG" /> 
                     </div>
                     <div className="card_title"> {name} </div>
                 </div>

@@ -11,31 +11,53 @@ export default class CategoryPage extends Component {
     galleryService = new GalleryService();
 
     state = {
-        images: null
+        images: null,  // Arr of Objcts
+        firstImgUrl: ''
     }
 
     componentDidMount() {
+        //console.log("CategoryPage Comp,  componentDidMount().....");
+
+        // state.images setState
         const {categPath} = this.props;
 
         this.galleryService.getCategoryImages(categPath)
             .then( (allImages) => {
                 this.setState({images: allImages.images})
+                console.log(`CategPage -> ImagesArr:`);
                 console.log(this.state.images);
             })
+            .then( () => {
+                // 1-st Img Url setState
+                this.setFirstImgUrlToState();   
+            })
+        //
+    }
+
+    setFirstImgUrlToState = () => {
+        const {fullpath} = this.state.images[0];
+        this.setState({ firstImgUrl: `http://api.programator.sk/images/1000x600/${fullpath}` })
+    }
+    onCardHover = (hoveredImgUrl) => {
+        this.setState({ firstImgUrl: hoveredImgUrl })
+    }
+    onCardLeave = () => {
+        this.setFirstImgUrlToState();
     }
 
     dynamImagesRender = (imagesArr) => {  // Arr  of  Objcts
         return imagesArr.map((image, idx) => {
             const {path, fullpath} = image;
             
-            return < CategoryImageCard imgPath={path}  fullImgPath={fullpath} key={idx}/>
+            return < CategoryImageCard imgPath={path} fullImgPath={fullpath} onCardHover={this.onCardHover} onCardLeave={this.onCardLeave} key={idx}/>
         })
     }
 
 
     render() {
+        //console.log('CategoryPage  render() .....');
 
-        const {images} = this.state;
+        const {images, firstImgUrl} = this.state;
         if (!images) {  return <span> Loading !!! </span>  }
 
         const categoryImageCards = this.dynamImagesRender(images);
@@ -45,7 +67,7 @@ export default class CategoryPage extends Component {
                 <Container>
             
                     {/* <!--  BLURED TOP BackGround  --> */}
-                    < GalleryBackground />
+                    < GalleryBackground imgUrl={firstImgUrl} /> 
                 
                     <Container>
                         <Row>

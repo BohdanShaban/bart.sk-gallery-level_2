@@ -7,19 +7,23 @@ import './modals_common_elms.sass'
 
 export class ModalTopCloseBtn extends Component {
 
-    urlBack = e => {
+    removeLastUrlPrt = e => {
         e.stopPropagation();
-        this.props.history.goBack();
+
+        let {url} = this.props.match;
+        url = url.slice(0, url.lastIndexOf('/'));
+        this.props.history.push(url + '/');
     };
 
+    
 
     render() {
         return (
             <div className="close_btn_wrapper">
-                <button className="close_btn" onClick={ this.urlBack }>
+                <button className="close_btn" onClick={ this.removeLastUrlPrt }>
 
                     <img src={closeImg} alt="Close"/>
-                    <div className="btn_text">ZAVRIET</div>
+                    <div className="btn_text">zavrieť</div>
                 </button>
             </div>
         )

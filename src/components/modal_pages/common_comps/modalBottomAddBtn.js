@@ -9,7 +9,7 @@ const ModalBottomAddBtn = () => {
     return (
         <button className="modal_add_btn" type="submit" data-add>
             <img src={addImg} alt="Add" />
-            <div className="btn_text">PRIDAT</div>
+            <div className="btn_text">pridať</div>
         </button>
     )
 }

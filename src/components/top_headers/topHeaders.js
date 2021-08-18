@@ -14,7 +14,7 @@ const TopHeaders = ({subHeaderTxt, withBackBtn = false}) => {
         // <!--  HEADER & SUB-HEADER & DIVIDER  -->
         <Col md={12}>
             
-            <h1>Fotogaleria</h1>
+            <h1>Fotogaléria</h1>
             
             <div className="sub_header_wrapper">          
                 {backBtn}

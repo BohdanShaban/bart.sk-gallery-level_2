@@ -11,9 +11,15 @@ import '../common_comps/modals_common_elms.sass'
 
 export class AddCategModal extends Component {
 
-    state = {
-        inputTxt: ''
+    state = { inputTxt: '', isOpen: false }
+    
+    componentDidMount() {
+        document.body.style.overflow = 'hidden';
     }
+    componentWillUnmount() {
+        document.body.style.overflow = 'unset';
+    }
+
 
     onSubmit = (e) => {
         e.preventDefault();
@@ -40,18 +46,18 @@ export class AddCategModal extends Component {
 
         return (
 
-            <div  className="modal__mask "    >  {/* onClick={ this.urlGoBack } */}
+            <div  className="modal__mask "  onClick={ () => this.props.history.goBack() }  >  {/* onClick={ this.urlGoBack } */}
 
                 <div className="modal__dialog">
                     < ModalTopCloseBtn />
 
                     <div className="modal_content">
-                        <h2 className="modal_content__header">Pridat kategoriu</h2>
+                        <h2 className="modal_content__header">pridať kategóriu</h2>
 
                         <form className="add_category_wrapper"
                                 onSubmit={this.onSubmit}
                         > 
-                            <input className="input_categ_add" name="input-categ" type="text" id="categ_add" placeholder="Zadajte nazov kategorie"
+                            <input className="input_categ_add" name="input-categ" type="text" id="categ_add" placeholder="Zadajte názov kategórie"
                                     onChange={this.onValueChange}  value={this.state.inputTxt}
                             />
                             < ModalBottomAddBtn />

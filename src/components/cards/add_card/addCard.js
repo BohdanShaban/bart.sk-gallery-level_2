@@ -16,7 +16,7 @@ export class AddCard extends Component {
         const {addCategory} = this.props;
 
         const imgSrc = addCategory ? addCategImg : addPhotoImg;
-        const titleText = addCategory ? 'kategoriu' : 'fotky';
+        const titleText = addCategory ? 'kategóriu' : 'fotky';
         const linkTo = addCategory ? 'categoryAddModal' : 'photoAddModal'; 
 
         return (
@@ -29,7 +29,7 @@ export class AddCard extends Component {
                     <div className="card_img__add_card" >
                         <img src={imgSrc} alt="img" />
                     </div>
-                    <div className="card_title__add_card">pridat {titleText} </div>
+                    <div className="card_title__add_card">pridať {titleText} </div>
 
                 </div>
                 {/* </Link> */}

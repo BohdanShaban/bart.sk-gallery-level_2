@@ -1,0 +1,24 @@
+
+    
+.backgr_wrapper{
+    position: 'absolute';
+    top: '0';
+    left: '0';
+    z-index: '-1';
+    height: '338px';
+    width: '100%';
+}
+
+.background {
+    --background-src: 'http://api.programator.sk/images/1000x700/Architecture/at_fin2.jpg';
+
+    position: 'relative';
+    height: '338px';
+    width: '100%';
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'center';
+}
+
+
+    

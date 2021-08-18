@@ -1,35 +1,42 @@
 import React, {Component} from "react";
 import { Col } from "react-bootstrap"; 
-import {withRouter, Link, useLocation, useRouteMatch} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 
 
 import '../cards.sass';
 
 
-const CategoryImageCard = ({imgPath, fullImgPath}) => {
+export class CategoryImageCard extends Component {
 
-    let location = useLocation();
-    let {url} = useRouteMatch();
+    state = { ImgUrl: null }
 
-    return (
+    componentDidMount() {
+        const {fullImgPath} = this.props;
+        this.setState({ ImgUrl: `http://api.programator.sk/images/200x250/${fullImgPath}` });
+    }
 
-        <Col lg={3} md={4} sm={6} > 
+    render() {
 
-            <Link to={{ 
-                pathname:`${url}${imgPath}`,
-                state: { background: location }  // !!!!! BY CLICKING WE ARE SETTING  background  Param Here
-                }}  style={{ textDecoration: 'none' }}
-            > 
-                <div className="card_item" > {/* Border Radius !!! */}
+        let {url} = this.props.match;
+        const {imgPath, onCardHover, onCardLeave} = this.props;
+        const {ImgUrl} = this.state;
 
-                    <div className="card_img">
-                        <img src={ `http://api.programator.sk/images/400x300/${fullImgPath}` } alt={imgPath} />
+        return (
+            <Col lg={3} md={4} sm={6} > 
+
+                <Link to={`${url}${imgPath}`}  style={{ textDecoration: 'none' }} > 
+                    <div className="card_item" onMouseEnter={ () => onCardHover(ImgUrl) }
+                                               onMouseLeave={ () => onCardLeave() } > {/* Border Radius !!! */}
+
+                        <div className="card_img">
+                            <img src={ ImgUrl } alt={imgPath} />
+                        </div>
                     </div>
-                </div>
-            </Link> 
+                </Link> 
 
-        </Col>
-    )
+            </Col>
+        )
+    }
 }
 
-export default CategoryImageCard; //withRouter(CategoryImageCard);
+export default withRouter(CategoryImageCard);

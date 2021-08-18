@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { Container, Row } from "react-bootstrap";
 
-import TopBackground from "../top_background/topBackground";
+import GalleryBackground from "../top_background/topBackground"
 import TopHeaders from "../top_headers/topHeaders";
 import GalleryService from "../services/galery_service";
 import {AddCard, GaleryCategoryCard} from '../cards'
@@ -12,7 +12,8 @@ export default class GalleryPage extends Component {
     galleryService = new GalleryService();
 
     state = {
-        galleries: null
+        galleries: null,
+        firstImgUrl: ''
     }
 
     componentDidMount() {
@@ -22,6 +23,11 @@ export default class GalleryPage extends Component {
                 this.setState({galleries: allGaleries.galleries})
                 //console.log(this.state.galleries);
             })
+            .then( () => {
+                // 1-st Img Url setState 
+                this.setFirstImgUrlToState();
+            })
+        //
     }
 
     dynamGaleriesRender = (galeriesArr) => {  // Arr  of  Objcts
@@ -31,14 +37,31 @@ export default class GalleryPage extends Component {
             // UNDEFINED FULLPATH (fullpath) param Handling
             const { fullpath } = (typeof gallery.image !== 'undefined' && gallery.image) || {}
 
-            return < GaleryCategoryCard name={name} path={path} imgPath={fullpath} key={idx} />
+            return < GaleryCategoryCard name={name} path={path} onCardHover={this.onCardHover} onCardLeave={this.onCardLeave} imgPath={fullpath} key={idx} />
         })
+    }
+
+    setFirstImgUrlToState = () => {
+        const firstGalleriesObj = this.state.galleries[0];
+        const {name} = firstGalleriesObj;
+        // !!!!! NEED UNDEFINED HANDLE !!!!!
+        const {path} = (typeof firstGalleriesObj.image !== 'undefined' && firstGalleriesObj.image) || {}
+
+        if (typeof(path) !== 'undefined') { 
+            this.setState({ firstImgUrl: `http://api.programator.sk/images/1000x600/${name}/${path}` });
+        } else { this.setState({ firstImgUrl: undefined }); }
+    }
+    onCardHover = (hoveredImgUrl) => {
+        this.setState({ firstImgUrl: hoveredImgUrl })
+    }
+    onCardLeave = () => {
+        this.setFirstImgUrlToState();
     }
 
 
     render() {
 
-        const {galleries} = this.state;
+        const {galleries, firstImgUrl} = this.state;
         if (!galleries) {  return <span> Loading !!! </span>  }
 
         const galleryCards = this.dynamGaleriesRender(galleries);
@@ -48,13 +71,13 @@ export default class GalleryPage extends Component {
                     <Container>
 
                         {/* <!--  BLURED TOP BackGround  --> */}
-                        < TopBackground />
+                        < GalleryBackground imgUrl={firstImgUrl} />
                     
                         <Container>
                             <Row>
                                 
                                 {/* <!--  H1, H2 & Divider  --> */}
-                                < TopHeaders subHeaderTxt='kategorie' />
+                                < TopHeaders subHeaderTxt='kategórie' />
                                 
                                 {/* <!--  CARDS  --> */}
                                 {galleryCards}

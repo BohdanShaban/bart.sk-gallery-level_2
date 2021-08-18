@@ -32,15 +32,12 @@ export class App extends Component {
             const {path, name} = gallery; 
              
             return (
-                <Route exact path={`/${path}`} key={idx}>
+                <Route path={`/${path}`} key={idx}>  
                     <CategoryPage categPath={path} categName={name}/>
                 </Route>
             )
         })
     }
-
-    // { background && < Route path={`*/*/:id`} component={ShowImageModal} /> }
-    // < Route path={`*/*/:id`} component={ShowImageModal} />
 
     render() {
 
@@ -55,24 +52,25 @@ export class App extends Component {
 
 
         return (
-            <div>
-                < Switch >
+            <>
 
-                    < Route exact path='/' component={GalleryPage}/>
+                < Route exact path='/' component={GalleryPage}/> 
 
-                    {/* ALL CATEGORY PAGES HERE... */}
-                    {categoryRoutes}
+                < Route path='/categoryAddModal' >
+                    <GalleryPage/>
+                    <AddCategModal/>
+                </Route>
 
+                {/* ALL CATEGORY PAGES HERE... */}
+                {categoryRoutes} 
+
+                < Switch > 
                     {/* MODALS ROUTES */}
-                    < Route path='/categoryAddModal' component={AddCategModal} />
-                    < Route path={`*/photoAddModal`} component={AddPhotoModal} /> 
-                    < Route path={`*/*/:id`} component={ShowImageModal} />
-
+                    < Route exact path={`*/photoAddModal`} component={AddPhotoModal} /> 
+                    < Route exact path={`*/*/:id`} component={ShowImageModal} />
                 </Switch>
 
-                {/* Show the modal when a background page is set */}
-
-            </div>   
+            </>   
         )
     }
 }

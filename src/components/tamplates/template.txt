@@ -88,3 +88,10 @@ console.log(`Path: ${path}, Url: ${url}, ID:${id}`);
 // FOR BACKGROUND & MODAL ON TOP
 console.log(`Location: ${location}, BG: ${background} `);
 console.dir(location);   console.dir(background);
+
+// WAS PREV ON CategoryImageCard (CategoryPageImageCard.js) -> Link 
+<Link to={{ 
+    pathname:`${url}${imgPath}`,
+    state: { background: location }  // !!!!! BY CLICKING WE ARE SETTING  background  Param Here
+    }}  style={{ textDecoration: 'none' }}
+> 
