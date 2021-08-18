@@ -30,8 +30,9 @@ export class AddCategModal extends Component {
             .then ( myJson => console.log('SUCCESS POST RESULT: ', myJson) )
             .catch((err) => console.log(err))
         this.setState({ inputTxt: '' }); // IMMUTABLE !!!
-        // Close Modal 
+        // Close Modal & Page reload
         document.getElementById('modal_close').click();
+        window.location.reload();
     }
 
     onValueChange = (e) => {

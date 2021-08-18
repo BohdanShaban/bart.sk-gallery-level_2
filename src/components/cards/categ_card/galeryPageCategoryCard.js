@@ -3,6 +3,9 @@ import { Col } from "react-bootstrap";  // lg={3} md={4} sm={6}
 import {Link} from 'react-router-dom';
 import GalleryService from "../../services/galery_service";
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 import no_image_yet from './no_photo_yet.jpeg'
 
 import '../cards.sass';
@@ -70,7 +73,7 @@ export default class GaleryCategoryCard extends Component {
                 <Link to= { `/${path}/` } style={{ textDecoration: 'none' }} > 
                     <div className="card_item" onMouseEnter={ this.onHoverHandler } onMouseLeave={ this.onLeaveHandler } >
                         <div className="card_img"  style={{height: '157px'}} >
-                            <img src={srcImg} alt="IMG" /> 
+                            <LazyLoadImage className="lazy_load" width='300px' height='157px' src={srcImg} effect='blur' alt="IMG" /> 
                         </div>
                         <div className="card_title"> {name} </div>
                         { isHoverAtMoment ? <div className="grop_or"> {imgsCount} fotiek</div> : null }

@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import { Col } from "react-bootstrap"; 
 import {withRouter, Link} from 'react-router-dom';
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import '../cards.sass';
 
@@ -29,7 +30,7 @@ export class CategoryImageCard extends Component {
                                                onMouseLeave={ () => onCardLeave() } > {/* Border Radius !!! */}
 
                         <div className="card_img">
-                            <img src={ ImgUrl } alt={imgPath} />
+                            <LazyLoadImage  width='300px' height='220px' src={ ImgUrl } effect='blur'  alt={imgPath} />
                         </div>
                     </div>
                 </Link> 

@@ -56,8 +56,9 @@ export class AddPhotoModal extends Component {
         this.preventDefaults(e);
         this.postFiles(this.state.selectedFiles);
 
-        // Close Modal
+        // Close Modal & Page reload
         document.getElementById('modal_close').click();
+        window.location.reload();
     }
 
     onDragOver = (e) => {

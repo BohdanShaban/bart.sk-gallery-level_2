@@ -46,18 +46,13 @@ export class App extends Component {
         if (!galleries) { return <span> Loading !!! </span>  }
         const categoryRoutes = this.dynamCategoriesRoutesRender(galleries);
 
-        // FOR BACKGROUND & MODAL ON TOP
-        // let {location} = this.props;
-        // let background = location.state && location.state.background;
-
-
         return (
             <>
 
                 < Route exact path='/' component={GalleryPage}/> 
 
                 < Route path='/categoryAddModal' >
-                    <GalleryPage/>
+                    <GalleryPage />
                     <AddCategModal/>
                 </Route>
 
