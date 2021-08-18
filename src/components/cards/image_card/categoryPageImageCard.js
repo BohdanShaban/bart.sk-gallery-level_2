@@ -27,10 +27,10 @@ export class CategoryImageCard extends Component {
 
                 <Link to={`${url}${imgPath}`}  style={{ textDecoration: 'none' }} > 
                     <div className="card_item" onMouseEnter={ () => onCardHover(ImgUrl) }
-                                               onMouseLeave={ () => onCardLeave() } > {/* Border Radius !!! */}
+                                               onMouseLeave={ () => onCardLeave() } > 
 
                         <div className="card_img">
-                            <LazyLoadImage  width='300px' height='220px' src={ ImgUrl } effect='blur'  alt={imgPath} />
+                            <LazyLoadImage  width='100%' height='100%' objectFit='cover' className='photo' src={ ImgUrl } effect='blur' alt={imgPath} />
                         </div>
                     </div>
                 </Link> 

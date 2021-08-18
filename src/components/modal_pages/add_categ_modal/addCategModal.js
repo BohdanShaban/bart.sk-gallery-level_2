@@ -39,18 +39,24 @@ export class AddCategModal extends Component {
         this.setState({ inputTxt: e.target.value }); // IMMUTABLE !!! 
         console.log( `AddCategModal Comp, onValueChange(), inputTxt: ${this.state.inputTxt}`);
     }
-
-    urlGoBack = (e) => {
+    removeLastUrlPrt = e => {
         e.stopPropagation();
-        this.props.history.goBack();
-    }   
+
+        const target = e.target;
+        if (target.id !== 'modal__mask') {
+            return ; // child was clicked, ignore onClick
+        }
+
+        let {url} = this.props.match;
+        url = url.slice(0, url.lastIndexOf('/'));
+        this.props.history.push(url + '/');
+    }; 
 
     render() {
 
         return (
 
-            <div  className="modal__mask "  onClick={ () => this.props.history.goBack() }  >  {/* onClick={ this.urlGoBack } */}
-
+            <div className="modal__mask" id='modal__mask'  onClick={ this.removeLastUrlPrt }  >
                 <div className="modal__dialog">
                     < ModalTopCloseBtn />
 

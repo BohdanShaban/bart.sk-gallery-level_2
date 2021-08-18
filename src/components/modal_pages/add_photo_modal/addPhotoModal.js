@@ -84,13 +84,24 @@ export class AddPhotoModal extends Component {
         // PLACE FILES TO state —> Will Have Arr of Files
         this.setState({ selectedFiles: [...this.state.selectedFiles, ...files ] });
     }
+    removeLastUrlPrt = e => {
+        e.stopPropagation();
+
+        const target = e.target;
+        if (target.id !== 'modal__mask') {
+            return ; // child was clicked, ignore onClick
+        }
+
+        let {url} = this.props.match;
+        url = url.slice(0, url.lastIndexOf('/'));
+        this.props.history.push(url + '/');
+    };
 
 
     render() {
         return (
             <>
-                <div className="modal__mask"  >  {/* onClick={ () => this.props.history.goBack() } */}
-
+                <div className="modal__mask" id='modal__mask' onClick={ this.removeLastUrlPrt } >
                     <div className="modal__dialog">
 
                         < ModalTopCloseBtn />
@@ -99,11 +110,11 @@ export class AddPhotoModal extends Component {
 
                             <h2 className="modal_content__header">Pridať fotky</h2>
 
-                            <div id="drop-area" onDrop={this.onDrop} onDragOver={ this.onDragOver } onDragLeave={this.onDragLeave}>
+                            <div >
 
                                 <form className="photo_drag_and_drop" onSubmit={this.onSubmit}  method="post" action="" encType="multipart/form-data" >
 
-                                    <div className="box__input">
+                                    <div className="box__input"  id="drop-area" onDrop={this.onDrop} onDragOver={ this.onDragOver } onDragLeave={this.onDragLeave}>
                                         <div className="card_img__add_card" > <img src={srcImage} className="add_photo_img" alt="img" /> </div>
 
                                         <input className="box__file" type="file" onChange={this.inputFileChanged} name="files[]" id="file" accept="image/*" data-multiple-caption="{count} files selected" multiple />

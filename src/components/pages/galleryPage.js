@@ -29,18 +29,6 @@ export default class GalleryPage extends Component {
             })
         //
     }
-
-    dynamGaleriesRender = (galeriesArr) => {  // Arr  of  Objcts
-        return galeriesArr.map((gallery, idx) => {
-            const {name, path} = gallery;
-
-            // UNDEFINED FULLPATH (fullpath) param Handling
-            const { fullpath } = (typeof gallery.image !== 'undefined' && gallery.image) || {}
-
-            return < GaleryCategoryCard name={name} path={path} onCardHover={this.onCardHover} onCardLeave={this.onCardLeave} imgPath={fullpath} key={idx} />
-        })
-    }
-
     setFirstImgUrlToState = () => {
         const firstGalleriesObj = this.state.galleries[0];
         const {name} = firstGalleriesObj;
@@ -56,6 +44,16 @@ export default class GalleryPage extends Component {
     }
     onCardLeave = () => {
         this.setFirstImgUrlToState();
+    }
+    dynamGaleriesRender = (galeriesArr) => {  // Arr  of  Objcts
+        return galeriesArr.map((gallery, idx) => {
+            const {name, path} = gallery;
+
+            // UNDEFINED FULLPATH (fullpath) param Handling
+            const { fullpath } = (typeof gallery.image !== 'undefined' && gallery.image) || {}
+
+            return < GaleryCategoryCard name={name} path={path} onCardHover={this.onCardHover} onCardLeave={this.onCardLeave} imgPath={fullpath} key={idx} />
+        })
     }
 
 

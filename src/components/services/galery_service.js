@@ -60,11 +60,6 @@ export default class GalleryService {  // export default
     return images;
   }
 
-  getImageExample = async (width = 300, height = 200, fullPath = 'DFauta/1.jpg') => {
-    const image = await this.getResource(`/images/${width}x${height}/${fullPath}`);
-    return image;
-  }
-
 }
 
 // TESTING EXAMPLE

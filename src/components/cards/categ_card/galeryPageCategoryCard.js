@@ -41,14 +41,10 @@ export default class GaleryCategoryCard extends Component {
         this.galleryService.getCategoryImages(path)
             .then( (allImages) => {
                 this.setState({images: allImages.images})
-                // console.log(`GaleryCategoryCard -> ImagesArr:`);
-                // console.log(this.state.images);
             })
             .then( () => {
                 // state.imgsCount setState
                 this.setState({imgsCount: this.state.images.length});  
-                // console.log(`GaleryCategoryCard -> imgsCount:`);
-                // console.log(this.state.imgsCount); 
             })
     }
     onHoverHandler = () => {
@@ -73,7 +69,7 @@ export default class GaleryCategoryCard extends Component {
                 <Link to= { `/${path}/` } style={{ textDecoration: 'none' }} > 
                     <div className="card_item" onMouseEnter={ this.onHoverHandler } onMouseLeave={ this.onLeaveHandler } >
                         <div className="card_img"  style={{height: '157px'}} >
-                            <LazyLoadImage className="lazy_load" width='300px' height='157px' src={srcImg} effect='blur' alt="IMG" /> 
+                            <LazyLoadImage width='100%' height='100%' objectFit='cover' src={srcImg} effect='blur' alt={name} /> 
                         </div>
                         <div className="card_title"> {name} </div>
                         { isHoverAtMoment ? <div className="grop_or"> {imgsCount} fotiek</div> : null }

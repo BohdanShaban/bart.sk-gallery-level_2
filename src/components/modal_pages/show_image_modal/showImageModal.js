@@ -90,6 +90,18 @@ export class ShowImageModal extends Component {
             }
         })
     }
+    removeLastUrlPrt = e => {
+        e.stopPropagation();
+
+        const target = e.target;
+        if (target.id !== 'modal__mask') {
+            return ; // child was clicked, ignore onClick
+        }
+
+        let {url} = this.props.match;
+        url = url.slice(0, url.lastIndexOf('/'));
+        this.props.history.push(url + '/');
+    };
 
 
     render() {
@@ -99,9 +111,7 @@ export class ShowImageModal extends Component {
         const currImgUrl = `http://api.programator.sk/images/600x450/${url}`;
 
         return (
-            <div className="modal__mask  popup__add_categ" 
-                   > {/* <!--  !!! onClick={ () => this.props.history.goBack() }  --> */}
-
+            <div className="modal__mask" id='modal__mask' onClick={ this.removeLastUrlPrt } >
                 <div className="modal__dialog">
 
 
